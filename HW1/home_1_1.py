@@ -1,5 +1,5 @@
-#функцию is_primary(), которая принимает целое число и возвращает, является ли число простым ( булевый результат ).
-#функцию test_primary(), которая реализует тестирование функции is_primary() с использованием assert. Предусмотреть как позитивные тесты (то, что ожидается от функции), так и негативные (реакция на внештатные ситуации).
+#Create a function is_primary(), which takes an integer and returns whether the number is prime ( boolean result ).
+#Create a function test_primary(), which implements testing of the is_primary() function using assert. Provide both positive tests (what is expected from the function) and negative tests (reaction to out-of-order situations).
 import math
 
 def is_primaty(numb:int) -> bool:

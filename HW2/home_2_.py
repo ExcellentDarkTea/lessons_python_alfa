@@ -3,12 +3,11 @@ import re
 from typing import Callable
 
 
-#Создать функцию report(), которая принимает текст сообщения об ошибке и печатает его на экран.
+#1. Create a report() function that takes the text of an error message and prints it to the screen.
 def report(error):
     print(error)
 
-#Реализовать декоратор catch(), который позволяет перехватить ошибки исключений работы с файлом,
-# возникающих в декорируемой функции.
+#Create the catch() decorator, which allows you to catch file handling exception errors that occur in the function being decorated.
 def catch(fn: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         try:
@@ -20,11 +19,10 @@ def catch(fn: Callable) -> Callable:
 
     return wrapper
 
-
-#1. Написать функцию get_word_stats(). которая принимает путь к текстовому файлу,
-# вычитывает его и возвращает словарь, в котором
-# ключи - это слова в данном файле,
-# значения - количество их повторений в файле.
+#2. Write a function get_word_stats(). which takes the path to a text file,
+# reads it and returns a dictionary in which
+# keys are the words in the file,
+# values are the number of times they are repeated in the file.
 @catch
 def get_word_stats(filename: str):
     glosary = {}
@@ -48,11 +46,10 @@ def get_word_stats(filename: str):
 
 
 #------------------------------------------------
-# Задание 3. get_word_stats_second - копипаст функция, но с новим декоратором через замикание
+#3. get_word_stats_second - copypaste function, but with a new decorator via zamikanie
 #------------------------------------------------
-
-#Реализовать замыкание make_catch(), которое принимает параметр fn - функцию.
-# Внутрь замыкания скопировать декоратор catch(), который вместо функции report должен использовать функцию fn.
+# Implement the make_catch() closure, which accepts the fn function parameter.
+#Copy the catch() decorator inside the closure, which should use the fn function instead of the report function.
 
 def make_catch(fn: Callable) -> Callable:
     def catch_1(decor_fn: Callable) -> Callable:
@@ -89,19 +86,19 @@ def get_word_stats_second(filename):
     return glosary
 
 #------------------------------------------------
-#проверка работы функции, декоратора и замыкания сто они вообще работают и запускаються
+#check the operation of the function, decorator and closure if they work and start at all
 #------------------------------------------------
 
-name = 'home2.txt'  #реальнй файл указаний по имени
-#name = 'C:/Users/Robotics/PycharmProjects/course/scr/home2.txt' # аналогично реальний файл указаний по пути
-#name = "text.txt"  #несуществующий файл
+name = 'home2.txt'  #real path guidance file by name
+#name = 'C:/Users/Robotics/PycharmProjects/course/scr/home2.txt' # alternative a real path guidance file
+#name = "text.txt"  #non-existent file
 text = get_word_stats(name)
 text2 = get_word_stats_second(name)
 print(text)
 print(text2)
 
 #------------------------------------------------
-#релаизация позитинвного теста
+#the positivity test
 #------------------------------------------------
 
 def test_positive():

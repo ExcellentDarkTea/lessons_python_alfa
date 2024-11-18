@@ -1,8 +1,8 @@
 """
-Используя функцию factorial() из предыдущих занятий, сформировать словарь,
-в котором ключи - это целые числа от 1 до 20, а значения - их факториалы.
+Using the factorial() function form a dictionary,
+where keys are integers from 1 to 20 and values are their factorials.
 
-Записать словарь в текстовый файл, используя json.dumps() с отступами.
+Write the dictionary to a text file using indented json.dumps().
 """
 import json
 
